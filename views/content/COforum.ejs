@@ -1,0 +1,37 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="/public/styles/customer/COforum.css"
+    type="text/css"
+  />
+</head>
+<div class="forum">
+  <div class="CO-div">
+    <h2>mögliche Kontakte</h2>
+    <div class="list-div">
+      <% for (let i=0; i<1; i++){ %> <% Personen.forEach(function(person){%>
+      <div class="CO-list-div">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <div class="CO-info-div">
+          <a><%=person.Nachn%></a>
+          <a><%=person.Vorn%></a>
+          <a><%=person.img%></a>
+        </div>
+      </div>
+      <% }) %> <%}%>
+    </div>
+  </div>
+  <div class="CO-dog-div">
+    <h2>meine Kontakte</h2>
+    <div class="list-div">
+      <% for (let i=0; i<1; i++){ %> <% Personen.forEach(function(person){%>
+      <div class="CO-list-div">
+        <ion-icon name="person-circle-outline"></ion-icon>
+        <div class="CO-info-div">
+          <a><%=person.Nachnver%></a>
+        </div>
+      </div>
+      <% }) %> <%}%>
+    </div>
+  </div>
+</div>

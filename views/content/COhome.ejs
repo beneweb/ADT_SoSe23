@@ -1,0 +1,87 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="/public/styles/customer/COhome.css"
+    type="text/css"
+  />
+</head>
+<!-- 
+        <div class="allpopup">
+            <div class="popup">
+                <div class="contentboxpopup">
+                    <div class="closepopup"></div>
+                    <div class="imgpop">
+                        <img src="https://www.bellfor.info/image/catalog/Blog/blog-preview/grosse-hunde.png">
+                    </div>
+                    <div class="contentpopup">
+                        <div>
+                            <h3>Spezielles Angebot</h3>
+                            <h2>80<sup>%</sup><span>Off</span></h2>
+                            <p>nur diese Woche!</p>
+                            <a href="/Hunderasse">zum Deal</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        POPUP-->
+<div class="contentdiv">
+  <!--TEXT-->
+  <div class="textbox">
+    <h2>Testet unser Sortiment</h2>
+    <p>
+      Wir bieten für alle Hunderassen jeden Alters alle Artikel mit allen Infos
+    </p>
+    <a href="#">mehr</a>
+  </div>
+  <!--SWIPER-->
+  <div class="swiper">
+    <div class="swiper-container">
+      <div class="swiper-wrapper">
+        <% for (let i=0; i<1; i++){ %> <% Sorten.forEach(function(Sorte){%>
+        <div class="swiper-slide"><img src="<%=Sorte.img%>" /></div>
+        <% }) %> <%}%>
+      </div>
+    </div>
+    <!--Add pagination-->
+    <div class="swiper-pagination"></div>
+  </div>
+</div>
+<!--FOOTER-->
+<!--SWIPER-->
+<script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+<script>
+  var swiper = new Swiper(".swiper-container", {
+    effect: "coverflow",
+    grabCursor: true,
+    centeredSlides: true,
+    slidesPerView: "auto",
+    coverflowEffect: {
+      rotate: 0,
+      stretch: 0,
+      depth: 200,
+      modifier: 1,
+      slideShadows: true,
+    },
+    pagination: {
+      el: ".swiper-pagination",
+    },
+    loop: true,
+  });
+</script>
+<!--POPUP-->
+<script>
+  //const popup = document.querySelector(".popup");
+  //const closepopup = document.querySelector(".closepopup");
+  // window.onload = function () {
+  //   setTimeout(
+  //     function () {
+  //       popup.style.display = "block";
+  //     } /*here you can add time for example 2000*/
+  //   );
+  // };
+
+  // closepopup.addEventListener("click", () => {
+  //   popup.style.display = "none";
+  // });
+</script>

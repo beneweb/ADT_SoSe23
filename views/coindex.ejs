@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta
+      name="viewport"
+      content="width=device-width,initial-scale=1.0"
+      charset="utf-8"
+    />
+    <title><%- title%></title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper/swiper-bundle.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="/public/styles/main.css" />
+  </head>
+  <body>
+    <% if(header != ''){ %>
+    <header><%- header %></header>
+    <% } %>
+    <nav><%- include('./util/COnavbar')%></nav>
+    <main><%- include(content)%></main>
+
+    <footer id="foot"><%- include('./util/COfoot')%></footer>
+  </body>
+</html>

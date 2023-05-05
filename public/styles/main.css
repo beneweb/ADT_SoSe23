@@ -1,0 +1,196 @@
+
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+*
+{
+font-family: 'Poppins', sans-serif;
+}
+/*popup*/
+/*
+.allpopup
+{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+    position: absolute;
+}
+.popup
+{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    display: none;
+}
+.contentboxpopup
+{
+    position: relative;
+    width: 600px;
+    height: 400px;
+    background: #fff;
+    border-radius: 20px;
+    display: flex;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+.contentboxpopup .imgpop
+{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contentboxpopup .imgpop::before
+{
+    content: '';
+    position: absolute;
+    width: 250px;
+    height: 250px;
+    background: #14522699;
+    border-radius: 50%;
+}
+.contentboxpopup .imgpop img
+{
+    position: relative;
+    max-width: 250px;
+    z-index: 1;
+}
+.contentboxpopup .contentpopup
+{
+    position: relative;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.contentboxpopup .contentpopup h3
+{
+    color: #333;
+    line-height: 1em;
+    font-weight: 300;
+    font-size: 2em;
+}
+.contentboxpopup .contentpopup h2
+{
+    font-size: 4em;
+    color: #ff4d54;
+    line-height: 1em;
+}
+.contentboxpopup .contentpopup h2 span
+{
+    color: #333;
+    font-size: 0.75em;
+    text-transform: uppercase;
+}
+.contentboxpopup .contentpopup p
+{
+    font-weight: 300;
+}
+.contentboxpopup .contentpopup a
+{
+    display: inline-block;
+    padding: 10px 20px;
+    background: #ff4d54;
+    color: #fff;
+    margin-top: 15px;
+    text-decoration: none;
+
+}
+.closepopup
+{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background: #f3f3f3 url(https://uxwing.com/wp-content/themes/uxwing/download/checkmark-cross/close-icon.png);
+    background-repeat: no-repeat;
+    background-size: 10px;
+    background-position: center;
+    cursor: pointer;
+    border-radius: 50%;
+    z-index: 10;
+}
+
+/*responsive machen*/
+/*
+@media (max-width: 767px)
+{
+    .contentboxpopup
+    {
+        width: 300px;
+        height: auto;
+        flex-direction: column;
+    }
+    .contentboxpopup .imgpop
+    {
+        height: 200px;
+        transform: translateY(-50px);
+    }
+    .contentboxpopup .imgpop::before
+    {
+        background: #fff;
+    }
+    .contentboxpopup .contentpopup
+    {
+        height: auto;
+        text-align: center;
+        padding: 20px;
+        padding-top: 0;
+    }
+    .closepopup
+    {
+        top: -50px;
+        right: -10px;
+        background: #f3f3f3 url(https://uxwing.com/wp-content/themes/uxwing/download/checkmark-cross/close-icon.png);
+        background-repeat: no-repeat;
+        background-size: 10px;
+        background-position: center;
+    }
+}
+/*main*/
+body{
+
+    margin:0;
+    display: grid;
+    grid-template-columns: min-content auto;
+    grid-template-rows: 5vh 85vh 10vh;
+    grid-template-areas:
+    "header header "
+    "menu main "
+    "footer footer";
+}
+header{
+    grid-area: header;
+    display: flex;
+    justify-content: center;
+    margin-left: 25%;
+    margin-right: 25%;
+    width: 50%;
+    background-color: rgb(38, 62, 38);
+    color: white;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+}
+nav{
+    grid-area: menu;
+    height: 100%;
+    width: 100%;
+
+    display: flex;
+    align-items: center
+}
+main{
+    grid-area: main;
+    height: 100%;
+    width: 100%;
+}
+
+footer#foot{
+    width:100%;
+    grid-area: footer;
+    position: fixed;
+    bottom: 0; 
+}

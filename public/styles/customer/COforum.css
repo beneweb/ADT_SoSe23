@@ -1,0 +1,55 @@
+ @import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+*
+{
+font-family: 'Poppins', sans-serif;
+}
+
+
+.forum{
+    height: 100%;
+    display: grid;
+padding: 10px 10px 10px 10px;
+    grid-template-columns: 1fr 1fr;
+/*     grid-area: main;
+    display: flex;
+    flex-direction: row;     */
+}
+
+.CO-div, .CO-dog-div{
+    width: 90%;
+    border-color: #999;
+    border-width: 1px;
+    border-style: solid;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+    border-radius: 10px;
+}
+h2{
+    text-align: center;
+    text-transform: uppercase;
+}
+.CO-list-div{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+.CO-list-div ion-icon{
+    font-size: 100px;
+}   
+.CO-list-div .CO-info-div{
+    display: none;
+    transform: translateY(-30px);
+    height: 40px;
+}
+.list-div{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+.CO-list-div ion-icon:hover{
+    opacity: 0.5;
+}
+.CO-list-div ion-icon:hover + .CO-info-div{
+    display: block;
+    color: black;
+    background-color: white;
+}

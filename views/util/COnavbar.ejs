@@ -1,0 +1,62 @@
+<head>
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous"
+  />
+  <link
+    rel="stylesheet"
+    href="/public/styles/customer/COnavbar.css"
+    type="text/css"
+  />
+</head>
+<!--NAV-->
+<div class="nav-container">
+  <ul>
+    <li>
+      <a href="/customer/COhome">
+        <span class="icon"
+          ><ion-icon class="pic" name="home-outline"></ion-icon
+        ></span>
+        <span class="title">Startseite</span>
+      </a>
+    </li>
+    <li>
+      <a href="/customer/COproductoverview">
+        <span class="icon"
+          ><ion-icon class="pic" name="fast-food-outline"></ion-icon
+        ></span>
+        <span class="title">Trockenfutter</span>
+      </a>
+    </li>
+    <li>
+      <a href="/customer/COforum">
+        <span class="icon"
+          ><ion-icon name="git-network-outline"></ion-icon
+        ></span>
+        <span class="title">forum</span>
+      </a>
+    </li>
+    <li>
+      <a href="/">
+        <span class="icon"
+          ><ion-icon class="pic" name="log-out-outline"></ion-icon
+        ></span>
+        <span class="title">abmelden</span>
+      </a>
+    </li>
+  </ul>
+  <div class="toggle"></div>
+</div>
+<script
+  type="module"
+  src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"
+></script>
+<script>
+  const navigation = document.querySelector("ul");
+  document.querySelector(".toggle").onclick = function () {
+    this.classList.toggle("active");
+    navigation.classList.toggle("active");
+  };
+</script>

@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css?family=Poppins:100,200,300,400,500,600,700,800,900&display=swap');
+*
+{
+font-family: 'Poppins', sans-serif;
+}
+
+
+
+.content-card-box{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+    position: relative;
+    height: 400px;
+    width: 250px;
+    background-color: #145226;
+    border-radius: 10px;
+    box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.2), 0 4px 6px -4px rgb(0 0 0 / 0.2);
+
+    margin: 40px;
+    margin-top: 200px;
+}
+
+.statistic{
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+}
+img{
+    position: relative;
+    top: -100px;
+    margin-bottom: -25%;
+}
+.content-card-box:before{
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    border-radius: 10px;
+
+    height: 100%;
+    background: #38814d;
+    clip-path: circle(0px at 90% 0%);
+    transition: 0.5s ease-in-out;
+}
+.article-box{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+}
+.content-card-box:hover:before{
+    clip-path: circle(400px at 80% 20%);
+    z-index: 1;
+}
+
+.content-card-box *{
+    z-index: 10;
+}
+
+
+/* .content-card-box:after{
+    content: 'Wolfsblut';
+    position: absolute;
+    top: 60%;
+    left: 0%;
+    z-index: 10;
+    font-size:3em;
+    font-weight:800;
+    font-style: italic;
+    color: rgba(255,255,255,0.14);
+} */
+
+.brand{
+    top: 60%;
+    left: 0%;
+    z-index: 10;
+    font-size:2.5em;
+    font-weight:800;
+    font-style: italic;
+    color: rgba(255,255,255,0.14);
+}
+.title{
+    font-weight: 700;
+    font-size: 1.5em;
+    text-transform: uppercase;
+    color: rgb(213, 218, 213);
+}
+
+.price, .kcal{
+    color: rgb(213, 218, 213);
+}
+
+
+.price > span, .kcal > span{
+    font-weight: 500;
+}
+
+
+.article-box .content-card-box img{
+    height: 200px;
+    transform: translateY(-40px);
+}
+
+/* .article-box .content-card-box h2 span,
+.article-box .content-card-box .weight-box span,
+.article-box .content-card-box .amount-box span{
+    transform: translateY(22px);
+} */
+/* .article-box .content-card-box .weight-box{
+    display: flex;
+    flex-direction: row;
+}
+.article-box .content-card-box .weight-box span{
+    padding-left: 10px;
+}
+.amount-box{
+    display: flex;
+    flex-direction: row;
+}
+.amount-box span{
+    padding-left: 10px;
+}
+.article-box .content-card-box a{
+    padding: 10px;
+    background-color: white;
+    text-decoration: none;
+    color: black;
+}
+ove */
+/* .content-card-box:hover img{
+    transform: translateY(-100px) rotate(-15deg);
+    transition: 0.5s ease-in-out;
+    
+} */
+/* .content-card-box:hover{
+    border-radius: 10px;
+    transition: 0.5s ease-in-out;
+} */
+/* .content-card-box:hover h2,
+.content-card-box:hover .weight-box,
+.content-card-box:hover .amount-box,
+.content-card-box:hover a{
+    transform: translateY(-100px);
+    transition: 0.5s ease-in-out;
+} */

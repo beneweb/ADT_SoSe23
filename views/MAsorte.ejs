@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="MAsorte.css">
+        <link rel="stylesheet" href="font-awesome.min.css">
+    </head>
+    <body>
+        <header>SORTIMENT</header>
+        <main>
+            <form method="post" action="addsort">
+                <input class="input" type="text" required="required" name="kategorie">
+                <span>Kategorie</span>
+                <input class="input" type="text" required="required" name="unterkategorie">
+                <span>Unterkategorie</span>
+                <input class="input" type="date" required="required" name="marke">
+                <span>Marke</span>
+                <input class="input" type="email" required="required" name="sorte_artikel">
+                <span>Sorte/Artikel</span>
+                <input class="input" type="text" required="required" name="preis">
+                <span>Preis</span>
+                <input class="input" type="text" required="required" name="kcal">
+                <span>kcal</span>
+                <input class="input" type="text" required="required" name="gewicht">
+                <span>Gewicht</span>
+                <input class="input" type="text" required="required" name="empfohlen_für">
+                <span>empfohlen für</span>
+                <input class="input" type="text" required="required" name="bestand">
+                <span>Bestand</span>
+                <input class="input" type="text" required="required" name="produktpreis">
+                <span>Produktpreis</span>
+                <button onclick="buttonclick()">anlegen</button>
+                <span id="icon-person"><ion-icon name="person-add-outline"></ion-icon></span>
+            </form>
+        </main>
+        <!--NAVIBAR-->
+        <nav>
+            <%- include('../views/MAnavibar')%>
+        </nav>
+        <script type="text/javascript">
+            var personal = document.getElementById("icon-person")
+
+            function buttonclick(){
+                personal.style.visibility = "visible";
+            }
+        </script>
+        <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    </body>
+</html>

@@ -1,0 +1,123 @@
+<html>
+  <head>
+    <title>login and register</title>
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="/public/styles/customer/COlogin-register.css"
+    />
+  </head>
+  <body>
+    <!--NAVIBAR-->
+    <nav><%- include('../views/COnavbar')%></nav>
+    <main>
+      <div class="textbox">
+        <div class="formbox">
+          <div class="buttonbox">
+            <div id="btn"></div>
+            <button type="button" class="lr" onclick="login()">login</button>
+            <button type="button" class="lr" onclick="register()">
+              register
+            </button>
+          </div>
+          <div class="socials">
+            <a href="#"><i class="fa fa-facebook" aria-hidden="true"></i> </a>
+            <a href="#"><i class="fa fa-twitter" aria-hidden="true"></i> </a>
+            <a href="#"><i class="fa fa-instagram" aria-hidden="true"></i> </a>
+          </div>
+          <form id="login" class="inputgroup">
+            <input
+              type="text"
+              class="inputfield"
+              placeholder="user id"
+              required
+            />
+            <input
+              type="text"
+              class="inputfield"
+              placeholder="password"
+              required
+            />
+            <input type="checkbox" class="checkbox" /><span class="info"
+              >Remember password</span
+            >
+            <button type="submit" class="submitbtn">login</button>
+          </form>
+          <form
+            id="register"
+            class="inputgroup"
+            action="/registrieren/add"
+            method="post"
+          >
+            <select name="rolle" class="buttonCSS" class="rolle">
+              <option>Mitarbeiter</option>
+              <option>Kunde</option>
+            </select>
+            <br />
+            <input
+              class="inputfield"
+              name="vorname"
+              placeholder="Bitte Vornamen eingeben"
+              required
+            />
+            <input
+              class="inputfield"
+              name="nachname"
+              placeholder="Bitte Nachnamen eingeben"
+              required
+            />
+            <input
+              class="inputfield"
+              name="datum"
+              type="date"
+              placeholder="Bitte Geburtsdatum eingeben"
+              required
+            />
+            <input
+              class="inputfield"
+              name="email"
+              type="email"
+              placeholder="Bitte E-mail eingeben"
+              required
+            />
+            <input
+              class="inputfield"
+              name="passwort"
+              placeholder="Bitte geben Sie Ihr gewünschtes Passwort ein"
+              required
+            />
+            <br />
+            <input type="checkbox" class="checkbox" /><span class="info"
+              >I agree to the terms & conditions</span
+            >
+            <br />
+            <button class="submitbtn">Registrieren</button>
+          </form>
+        </div>
+      </div>
+    </main>
+    <!--FOOTER-->
+    <footer><%- include('../views/COfoot')%></footer>
+    <script>
+      var x = document.getElementById("login");
+      var y = document.getElementById("register");
+      var z = document.getElementById("btn");
+
+      function register() {
+        x.style.left = "-400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+      }
+      function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0";
+      }
+    </script>
+  </body>
+</html>

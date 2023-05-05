@@ -1,0 +1,46 @@
+<head>
+  <link
+    rel="stylesheet"
+    type="text/css"
+    href="/public/styles/customer/COproductoverview.css"
+  />
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+    integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+    crossorigin="anonymous"
+  />
+</head>
+<!--CARDLIST-->
+
+<div class="article-box">
+  <% for (let i=0; i<1; i++){ %> <% Sorten.forEach(function(Sorte){%>
+  <div class="content-card-box">
+    <img src="<%=Sorte.img%>" />
+    <div class="title"><%=Sorte.Name%></div>
+    <!-- <h2>
+      <span id="input"></span>
+    </h2> -->
+    <div class="brand">Wolfsblut</div>
+    <div class="statistic">
+      <div class="price">
+        <span><%=Sorte.Preis%> €</span>
+      </div>
+      <div class="kcal">
+        <span><%=Sorte.kcal%> kcal</span>
+      </div>
+    </div>
+    <!-- <div class="weight-box"></div>
+    <div class="amount-box"></div> -->
+    <!-- <a href="#">kaufen</a> -->
+  </div>
+  <% }) %> <%}%>
+</div>
+<!--FOOTER-->
+
+<!--CARDLIST-->
+<!-- <script>
+  var Sorte = "<%- JSON.stringify(Sorten) %>";
+  var Sorte2 = Sorte.substr(10, 10);
+  document.getElementById("input").innerHTML = Sorte2;
+</script> -->
