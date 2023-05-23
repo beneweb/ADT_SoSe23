@@ -9,6 +9,10 @@ var driver = neo4j.driver(
 );
 var session = driver.session();
 
+const bodyParser = require('body-parser');
+router.use(bodyParser.urlencoded());
+
+
 router.get("/Cohome", function (req, res) {
   session
     .run(
@@ -42,24 +46,55 @@ router.get("/COforum", function (req, res) {
   session
     .run(
       `
-        match (p1:Person), (p2:Person), (p3:Person), (r:Rasse)
-        where p1.Vorname=~".*" and (p2)-[:ist_vernetzt]->(p3) and (p1)-[:besitzt]-(r)
-        return distinct p1, p3, r
-        `
+      match (p1:Person)-[:besitzt]-(r:Rasse), (p2:Person{Vorname:'Benedikt'})
+      where not exists ((p2)-[:ist_vernetzt]-(p1))
+      return p1 as Person1, NULL as Person2, r
+
+      union
+
+      match (r:Rasse)-[:besitzt]-(p1:Person{Vorname:'Benedikt'})-[:ist_vernetzt]->(p2:Person)
+      return NULL as Person1, p2 as Person2, r
+      `
     )
-    .then(function (result) {
-      var personArr = [];
-      result.records.forEach(function (record) {
-        personArr.push({
-          Vorn: record._fields[0].properties.Vorname,
-          Nachn: record._fields[0].properties.Nachname,
-          Hunder: record._fields[0].properties.Hunderasse,
-          Nachnver: record._fields[1].properties.Nachname,
-          img: record._fields[2].properties.Rasse,
-        });
+    .then(result => {
+      const data = {
+        p1s: [],
+        p2s: [],
+        rs: [],
+      };
+
+      result.records.forEach(record => {
+
+        const p1s = record.get('Person1');
+        const p2s = record.get('Person2');
+        const rs = record.get('r');
+
+        if (p1s) {
+          const p1Data = {
+            Vorn: p1s.properties.Vorname,
+            Nachn: p1s.properties.Nachname,
+            ident: p1s.properties.img
+          };
+          data.p1s.push(p1Data);
+        }
+        if (p2s) {
+          const p2Data = {
+            Vorn: p2s.properties.Vorname,
+            Nachn: p2s.properties.Nachname,
+            id: p2s.properties.id
+          };
+          data.p2s.push(p2Data);
+        }
+        if (rs) {
+          const rData = {
+            Rasseimg: rs.properties.img
+          };
+          data.rs.push(rData)
+        }
+
       });
       res.render("coindex", {
-        Personen: personArr,
+        data: data,
         content: "./content/COforum",
         title: "Forum",
         header: "Mitarbeiterforum",
@@ -69,7 +104,166 @@ router.get("/COforum", function (req, res) {
       console.log(err);
     });
 });
+//CO-forum-post
+router.post("/COforum", function (req, res) {
 
+  var pushVorname = req.body.selectedoption;
+  var selectedremove = req.body.selectedremove;
+
+  if (typeof pushVorname !== 'undefined' && pushVorname) {
+    session
+      .run(
+        `
+      match (p1:Person), (p2:Person{Vorname:'Benedikt'})
+      where not exists ((p2)-[:ist_vernetzt]-(p1))
+      return p1 as Person1, NULL as Person2
+
+      union
+
+      match (p1:Person), (p2:Person)
+      where p1.Vorname='Benedikt' and p2.Vorname='${pushVorname}'
+      create (p1)-[:ist_vernetzt]->(p2)
+      return NULL as Person1, p2 as Person2
+
+      union
+
+      match (p1:Person{Vorname:'Benedikt'})-[:ist_vernetzt]->(p2:Person)
+      return NULL as Person1, p2 as Person2
+      `
+      )
+      .then(result => {
+        const data = {
+          p1s: [],
+          p2s: [],
+          Rasse: [],
+        };
+
+        result.records.forEach(record => {
+
+          const p1s = record.get('Person1');
+          const p2s = record.get('Person2');
+
+          if (p1s) {
+            const p1Data = {
+              Vorn: p1s.properties.Vorname
+            };
+            data.p1s.push(p1Data);
+          }
+          if (p2s) {
+            const p2Data = {
+              Vorn: p2s.properties.Vorname
+            };
+            data.p2s.push(p2Data);
+          }
+        });
+        res.render("coindex", {
+          data: data,
+          content: "./content/COforum",
+          title: "Forum",
+          header: "Mitarbeiterforum",
+        });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+
+  if (typeof selectedremove !== 'undefined' && selectedremove) {
+    session
+      .run(
+        `
+      match (p1:Person), (p2:Person{Vorname:'Benedikt'})
+      where not exists ((p2)-[:ist_vernetzt]-(p1))
+      return p1 as Person1, NULL as Person2
+
+      union
+
+      match (p1:Person{Vorname:'Benedikt'})-[r:ist_vernetzt]-(p2:Person{Vorname:'${selectedremove}'})
+      delete r
+      return NULL as Person1, p2 as Person2
+
+      union
+
+      match (p1:Person{Vorname:'Benedikt'})-[:ist_vernetzt]->(p2:Person)
+      return NULL as Person1, p2 as Person2
+      `
+      )
+      .then(result => {
+        const data = {
+          p1s: [],
+          p2s: [],
+          Rasse: []
+        };
+
+        result.records.forEach(record => {
+
+          const p1s = record.get('Person1');
+          const p2s = record.get('Person2');
+
+          if (p1s) {
+            const p1Data = {
+              Vorn: p1s.properties.Vorname
+            };
+            data.p1s.push(p1Data);
+          }
+          if (p2s) {
+            const p2Data = {
+              Vorn: p2s.properties.Vorname
+            };
+            data.p2s.push(p2Data);
+          }
+
+        });
+        res.render("coindex", {
+          data: data,
+          content: "./content/COforum",
+          title: "Forum",
+          header: "Mitarbeiterforum",
+        });
+      })
+      .catch(function (err) {
+        console.log(err);
+      });
+  }
+
+
+
+
+
+});
+router.get('/data', (req, res) => {
+  const id = req.query.id
+
+  session
+    .run(
+      `
+      match (p:Person{Vorname:"${id}"})-[:ist_vernetzt]->(k:Person)
+      return k as kontakt
+      `
+    )
+    .then(result => {
+      const data = {
+        ks: [],
+      };
+
+      result.records.forEach(record => {
+
+        const ks = record.get('kontakt');
+
+        if (ks) {
+          const kData = {
+            Vorn: ks.properties.Vorname,
+          };
+          data.ks.push(kData);
+        }
+      });
+      res.send(data)
+    })
+    .catch(function (err) {
+      console.log(err);
+    });
+  
+});
 //login-register
 router.get("/COlogin-register", function (req, res) {
   session;

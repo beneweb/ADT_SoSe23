@@ -22,9 +22,10 @@
     border-radius: 50%;
     transition: 0.2s ease-in-out;
     color: white;
+    text-decoration: none;
 }
 .foot li i:hover
 {
-    background: #e51e2a;
+    background: #bbe6b7;
     transform: translateY(-10px);
 }

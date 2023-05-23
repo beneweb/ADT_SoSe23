@@ -17,12 +17,12 @@
     <link rel="stylesheet" href="/public/styles/main.css" />
   </head>
   <body>
-    <% if(header != ''){ %>
-    <header><%- header %></header>
-    <% } %>
     <nav><%- include('./util/COnavbar')%></nav>
     <main><%- include(content)%></main>
 
-    <footer id="foot"><%- include('./util/COfoot')%></footer>
+    <% if(header != ''){ %>
+      <footer id="foot"><%- include('./util/COfoot')%></footer>
+      <% } %>
+    
   </body>
 </html>

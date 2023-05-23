@@ -5,35 +5,21 @@
     type="text/css"
   />
 </head>
-<!-- 
-        <div class="allpopup">
-            <div class="popup">
-                <div class="contentboxpopup">
-                    <div class="closepopup"></div>
-                    <div class="imgpop">
-                        <img src="https://www.bellfor.info/image/catalog/Blog/blog-preview/grosse-hunde.png">
-                    </div>
-                    <div class="contentpopup">
-                        <div>
-                            <h3>Spezielles Angebot</h3>
-                            <h2>80<sup>%</sup><span>Off</span></h2>
-                            <p>nur diese Woche!</p>
-                            <a href="/Hunderasse">zum Deal</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        POPUP-->
-<div class="contentdiv">
-  <!--TEXT-->
-  <div class="textbox">
-    <h2>Testet unser Sortiment</h2>
-    <p>
-      Wir bieten für alle Hunderassen jeden Alters alle Artikel mit allen Infos
-    </p>
-    <a href="#">mehr</a>
-  </div>
+
+<div class="greating-text">
+  <a>"Hi ich bin Liora!<br>
+  Willkommen bei <span class="boldtext">easydog."</span></a>
+</div>
+<div class="interaction-bar">
+  <img onclick="alert('Thank you for subscrbing!')" class="interaction-img" src="/public/styles/pictures/like (2).png"/>
+  <img class="interaction-img" src="/public/styles/pictures/share (2).png"/>
+  <img class="interaction-img" src="/public/styles/pictures/comment (2).png"/>
+  <img class="interaction-img" src="/public/styles/pictures/subscribe (2).png"/>
+</div>
+<div class="circle">
+  <img class="liora-img" src="/public/styles/pictures/Liora-img.png "/>
+</div>
+<div class="box">
   <!--SWIPER-->
   <div class="swiper">
     <div class="swiper-container">
@@ -47,7 +33,7 @@
     <div class="swiper-pagination"></div>
   </div>
 </div>
-<!--FOOTER-->
+<footer></footer>
 <!--SWIPER-->
 <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
 <script>
@@ -68,20 +54,4 @@
     },
     loop: true,
   });
-</script>
-<!--POPUP-->
-<script>
-  //const popup = document.querySelector(".popup");
-  //const closepopup = document.querySelector(".closepopup");
-  // window.onload = function () {
-  //   setTimeout(
-  //     function () {
-  //       popup.style.display = "block";
-  //     } /*here you can add time for example 2000*/
-  //   );
-  // };
-
-  // closepopup.addEventListener("click", () => {
-  //   popup.style.display = "none";
-  // });
 </script>

@@ -5,33 +5,74 @@
     type="text/css"
   />
 </head>
+
 <div class="forum">
-  <div class="CO-div">
+  <div class="left-right-div">
     <h2>mögliche Kontakte</h2>
-    <div class="list-div">
-      <% for (let i=0; i<1; i++){ %> <% Personen.forEach(function(person){%>
-      <div class="CO-list-div">
-        <ion-icon name="person-circle-outline"></ion-icon>
-        <div class="CO-info-div">
-          <a><%=person.Nachn%></a>
-          <a><%=person.Vorn%></a>
-          <a><%=person.img%></a>
+    <% for (let i=0; i<1; i++){ %> <% data.p1s.forEach(p1 =>  {%>
+      <div class="eachperson">
+        <div class="circle"><img class="dog-img" src="/public/styles/pictures/Unbenannt.png"/></div>
+        <div class="bar">
+          <div class="nameofPerson">
+            <a><%=p1.Vorn%> <%=p1.Nachn%></a>
+          </div>
+          <div class="iconsofPerson">
+            <button onclick="openpopup(this)" class="contactofPerson" value="<%=p1.Vorn%>"><ion-icon name="git-branch-outline"></button>
+            <form method="post" action="/customer/COforum">
+              <button id="addbtn" name="selectedoption" type="submit" value="<%=p1.Vorn%>"><ion-icon name="add-circle-outline"></ion-icon></button>
+            </form>
+          </div>
         </div>
       </div>
       <% }) %> <%}%>
-    </div>
   </div>
-  <div class="CO-dog-div">
+  <div class="left-right-div">
     <h2>meine Kontakte</h2>
-    <div class="list-div">
-      <% for (let i=0; i<1; i++){ %> <% Personen.forEach(function(person){%>
-      <div class="CO-list-div">
-        <ion-icon name="person-circle-outline"></ion-icon>
-        <div class="CO-info-div">
-          <a><%=person.Nachnver%></a>
+    <% for (let i=0; i<1; i++){ %> <% data.p2s.forEach(p2 =>  {%>
+      <div class="eachperson">
+        <div class="circle"><img class="dog-img" src="/public/styles/pictures/Unbenannt.png"/></div>
+        <div class="bar">
+          <div class="nameofPerson">
+            <a><%=p2.Vorn%> <%=p2.Nachn%></a>
+          </div>
+          <div class="iconsofPerson">
+            <button onclick="openpopup(this)" class="contactofPerson" value="<%=p2.Vorn%>"><ion-icon name="git-branch-outline"></button>
+            <form method="post" action="/customer/COforum">
+              <button id="removebtn" name="selectedremove" type="submit" value="<%=p2.Vorn%>"><ion-icon name="close-circle-outline"></ion-icon></button>
+            </form>
+          </div>
         </div>
       </div>
       <% }) %> <%}%>
-    </div>
+  </div>
+
+<div class="popup">
+  <div class="popupcontent">
+    <button class="closebtn" onclick="closepopup()"><ion-icon name="remove-circle-outline"></ion-icon></button>
+    <div class="contactcontact-div">
+      <div id="popupwrite"></div>
+      <ion-icon name="person-add-outline"></ion-icon>
+      <ion-icon name="chatbubble-ellipses-outline"></ion-icon>
+      </div>
   </div>
 </div>
+
+<script>
+  const popup = document.querySelector(".popup");
+   function openpopup(button) {
+    var buttons = document.getElementsByClassName("contactofPerson");
+    var index = Array.from(buttons).indexOf(button);
+    var id = buttons[index].value;
+    
+      fetch(`/customer/data?id=${id}`)
+        .then(response => response.text())
+        .then(data => {
+          const popupwrite = document.getElementById('popupwrite');
+          popupwrite.textContent = data;
+          popup.style.display = "block";})
+        .catch(error => console.error(error));
+    };
+    function closepopup() {
+        popup.style.display = "none";
+    };
+</script>

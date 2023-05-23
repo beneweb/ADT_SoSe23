@@ -3,157 +3,72 @@
 {
 font-family: 'Poppins', sans-serif;
 }
-opu
-
-.allpopup
-{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: 'Poppins', sans-serif;
+.greating-text{
     position: absolute;
+    width: 50vw;
+    right: 25vw;
+    left: 25vw;
+    top: 40vh;
+    font-size: x-large;
 }
-.popup
-{
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%,-50%);
-    display: none;
+.boldtext{
+    font-weight: bold;
+    font-size: xx-large;
 }
-.contentboxpopup
-{
-    position: relative;
-    width: 600px;
-    height: 400px;
-    background: #fff;
-    border-radius: 20px;
-    display: flex;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+.circle{
+    position: absolute;
+    top: -100px;
+    right: 0px;
+    width: 500px;
+    height: 500px;
+    border-top-left-radius: 50%;
+    background-color: #3C5C51;
+    overflow: hidden;
+    border-bottom-left-radius: 100%;
 }
-.contentboxpopup .imgpop
-{
-    position: relative;
+.liora-img{
+    position: absolute;
     width: 300px;
-    height: 400px;
+    bottom: 0;
+    left: 100px;
+}
+.interaction-bar{
     display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.contentboxpopup .imgpop::before
-{
-    content: '';
-    position: absolute;
-    width: 250px;
-    height: 250px;
-    background: #14522699;
-    border-radius: 50%;
-}
-.contentboxpopup .imgpop img
-{
-    position: relative;
-    max-width: 250px;
-    z-index: 1;
-}
-.contentboxpopup .contentpopup
-{
-    position: relative;
-    width: 300px;
-    height: 400px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-.contentboxpopup .contentpopup h3
-{
-    color: #333;
-    line-height: 1em;
-    font-weight: 300;
-    font-size: 2em;
-}
-.contentboxpopup .contentpopup h2
-{
-    font-size: 4em;
-    color: #ff4d54;
-    line-height: 1em;
-}
-.contentboxpopup .contentpopup h2 span
-{
-    color: #333;
-    font-size: 0.75em;
-    text-transform: uppercase;
-}
-.contentboxpopup .contentpopup p
-{
-    font-weight: 300;
-}
-.contentboxpopup .contentpopup a
-{
-    display: inline-block;
-    padding: 10px 20px;
-    background: #ff4d54;
-    color: #fff;
-    margin-top: 15px;
-    text-decoration: none;
-
-}
-.closepopup
-{
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    background: #f3f3f3 url(https://uxwing.com/wp-content/themes/uxwing/download/checkmark-cross/close-icon.png);
-    background-repeat: no-repeat;
-    background-size: 10px;
-    background-position: center;
-    cursor: pointer;
-    border-radius: 50%;
-    z-index: 10;
-}
-
-
-.contentdiv{
-    display: flex;
-    flex-direction: column;
-    justify-content: center; 
-    height: 100%;
-    align-items: center;
     justify-content: space-around;
+    align-items: center;
+    position: absolute;
+    right: 400px;
+    width: 250px;
+    height: 70px;
+    border-radius: 25px;
+    z-index: 9999;
+    background-color: #7AA887;
 }
-/*text*/
-main .textbox h2
-{
-    
-    color: #161616;
-    font-size: 3em;
-    margin-bottom: 10px;
-    line-height: 1.4em;
-    font-weight: 700;
+.interaction-img{
+    width: 30px;
 }
-main .textbox p
-{
-    color:#161616;
-}
-main .textbox a
-{
-    display: inline-block;
-    margin-top: 20px;
-    padding: 8px 20px;
-    background: #145226;
-    color: #f7f2f2;
-    border-radius: 40px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-decoration: none;
+.box{
+    position: absolute;
+    bottom: 0;
+    right: 25vw;
+    left: 25vw;
+    width: 50vw;
+    height: 150px;
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+    background-color: #3C5C51;
+    z-index: 9000;
 }
 /*slider*/
 .swiper{
+    position: absolute;
+    width: 60%;
+    right: 20%;
+    left: 20%;
+    bottom: 40px;
     display: flex;
     justify-content: center;
     margin: 0;
-    width: 30%;
 }
 .swiper-container{
     width: 30%;
@@ -162,7 +77,7 @@ main .textbox a
 .swiper-slide{
     background-position: center;
     background-size: cover;
-    width: 150px;
+    width: 100px;
     height: 200px;
     display: flex;
     justify-content: center;
@@ -171,152 +86,6 @@ main .textbox a
     width: 400px;
 }
 
-.contenthome .swiper img
-{
-    max-width: 500px;
-}
-.swiper-slide img
-{
-    width: 150px;
-}
-.swiper-3d .swiper-slide-shadow-left,
-.swiper-3d .swiper-slide-shadow-right
-{
-    background-image: none;
-}
-/*responsive mache
-
-@media (max-width: 767px)
-{
-    .contentboxpopup
-    {
-        width: 300px;
-        height: auto;
-        flex-direction: column;
-    }
-    .contentboxpopup .imgpop
-    {
-        height: 200px;
-        transform: translateY(-50px);
-    }
-    .contentboxpopup .imgpop::before
-    {
-        background: #fff;
-    }
-    .contentboxpopup .contentpopup
-    {
-        height: auto;
-        text-align: center;
-        padding: 20px;
-        padding-top: 0;
-    }
-    .closepopup
-    {
-        top: -50px;
-        right: -10px;
-        background: #f3f3f3 url(https://uxwing.com/wp-content/themes/uxwing/download/checkmark-cross/close-icon.png);
-        background-repeat: no-repeat;
-        background-size: 10px;
-        background-position: center;
-    }
-}
-/*mai
-header{
-    grid-area: header;
-}
-nav{
-    grid-area: menu;
-    position: fixed;
-    margin-top: 50px;
-}
-main{
-    grid-area: main;
-    margin-top: 25vh;
-}
-#foot{
-    grid-area: footer;
-    position: fixed;
-    bottom: 0; 
-}
-body{
-    display: grid;
-    grid-template-rows: auto;
-    grid-template-columns: 20vw 40vw 40vw;
-    grid-template-rows: 5vh 85vh 10vh;
-    grid-template-areas:
-    "header header header"
-    "menu main main"
-    "menu footer footer";
-}
-.contentdiv{
-    display: flex;
-    flex-direction: row;
-}
-ex
-main .textbox
-{
-    width: 50%;
-    padding-left: 200px;
-}
-main .textbox h2
-{
-    color: #161616;
-    font-size: 3em;
-    margin-bottom: 10px;
-    line-height: 1.4em;
-    font-weight: 700;
-}
-main .textbox p
-{
-    color:#161616;
-}
-main .textbox a
-{
-    display: inline-block;
-    margin-top: 20px;
-    padding: 8px 20px;
-    background: #145226;
-    color: #161616;
-    border-radius: 40px;
-    font-weight: 500;
-    letter-spacing: 1px;
-    text-decoration: none;
-}
-lide
-.swiper{
-    display: flex;
-    justify-content: center;
-    width: 50%;
-}
-.swiper-container{
-    width: 30%;
-    background: cover;
-}
-.swiper-slide{
-    background-position: center;
-    background-size: cover;
-    width: 150px;
-    height: 200px;
-    display: flex;
-    justify-content: center;
-}
-.swiper-wrapper{
-    width: 400px;
-}
-.contenthome .swiper
-{
-    width: 700px;
-    display: flex;
-    justify-content: flex-end;
-}
-.contenthome .swiper img
-{
-    max-width: 500px;
-}
-.swiper-slide img
-{
-    width: 150px;
-}
 .swiper-3d .swiper-slide-shadow-left,
 .swiper-3d .swiper-slide-shadow-right
 {
